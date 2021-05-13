@@ -28,6 +28,7 @@ class Test_Chattogram(BaseTest):
     def test_date_text(self):
         self.chattogramPage = ChattogramPage(self.driver)
         text = self.chattogramPage.date_text()
+        print(text)
         if text:
             assert True
 
