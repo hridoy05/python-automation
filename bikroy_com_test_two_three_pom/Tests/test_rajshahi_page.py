@@ -16,20 +16,20 @@ class Test_Rajshahi(BaseTest):
 
     def test_lowest_add(self):
         self.rajshahiPage = RajshahiPage(self.driver)
-        element = self.rajshahiPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
+        element = self.rajshahiPage.do_find_lowest_ad()
         if element:
             assert True
 
     def test_click(self):
         self.rajshahiPage = RajshahiPage(self.driver)
-        self.rajshahiPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rajshahiPage.do_click(config.TestData.LOWEST_AD)
+        self.rajshahiPage.do_find_lowest_ad()
+        self.rajshahiPage.do_click()
         time.sleep(2)
 
     def test_date_text(self):
         self.rajshahiPage = RajshahiPage(self.driver)
-        self.rajshahiPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rajshahiPage.do_click(config.TestData.LOWEST_AD)
+        self.rajshahiPage.do_find_lowest_ad()
+        self.rajshahiPage.do_click()
         text = self.rajshahiPage.get_date_text()
         if text:
             assert True
@@ -37,24 +37,24 @@ class Test_Rajshahi(BaseTest):
     #
     def test_element_text(self):
         self.rajshahiPage = RajshahiPage(self.driver)
-        self.rajshahiPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rajshahiPage.do_click(config.TestData.LOWEST_AD)
-        text = self.rajshahiPage.get_element_text(config.TestData.ELEMENT_TEXT)
+        self.rajshahiPage.do_find_lowest_ad()
+        self.rajshahiPage.do_click()
+        text = self.rajshahiPage.get_element_text()
         if text:
             assert True
 
     def test_number_click(self):
         self.rajshahiPage = RajshahiPage(self.driver)
-        self.rajshahiPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rajshahiPage.do_click(config.TestData.LOWEST_AD)
-        self.rajshahiPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
+        self.rajshahiPage.do_find_lowest_ad()
+        self.rajshahiPage.do_click()
+        self.rajshahiPage.do_click_number_button()
 
     def test_phone_number(self):
         self.rajshahiPage = RajshahiPage(self.driver)
-        self.rajshahiPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rajshahiPage.do_click(config.TestData.LOWEST_AD)
-        self.rajshahiPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
-        phone_numbers = self.rajshahiPage.do_valid_phone_number(config.TestData.VALID_NUMBER)
+        self.rajshahiPage.do_find_lowest_ad()
+        self.rajshahiPage.do_click()
+        self.rajshahiPage.do_click_number_button()
+        phone_numbers = self.rajshahiPage.do_valid_phone_number()
         time.sleep(2)
         for phone_number in phone_numbers:
             Pattern = re.compile(r'^(?:\d88|88)?(01[3-9]\d{8})$')

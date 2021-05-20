@@ -16,44 +16,44 @@ class Test_Khulna(BaseTest):
 
     def test_lowest_add(self):
         self.khulnaPage = KhulnaPage(self.driver)
-        element = self.khulnaPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
+        element = self.khulnaPage.do_find_lowest_ad()
         if element:
             assert True
 
     def test_click(self):
         self.khulnaPage = KhulnaPage(self.driver)
-        self.khulnaPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.khulnaPage.do_click(config.TestData.LOWEST_AD)
+        self.khulnaPage.do_find_lowest_ad()
+        self.khulnaPage.do_click()
         time.sleep(1)
 
     def test_date_text(self):
         self.khulnaPage = KhulnaPage(self.driver)
-        self.khulnaPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.khulnaPage.do_click(config.TestData.LOWEST_AD)
+        self.khulnaPage.do_find_lowest_ad()
+        self.khulnaPage.do_click()
         text = self.khulnaPage.get_date_text()
         if text:
             assert True
 
     def test_element_text(self):
         self.khulnaPage = KhulnaPage(self.driver)
-        self.khulnaPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.khulnaPage.do_click(config.TestData.LOWEST_AD)
-        text = self.khulnaPage.get_element_text(config.TestData.ELEMENT_TEXT)
+        self.khulnaPage.do_find_lowest_ad()
+        self.khulnaPage.do_click()
+        text = self.khulnaPage.get_element_text()
         if text:
             assert True
 
     def test_number_click(self):
         self.khulnaPage = KhulnaPage(self.driver)
-        self.khulnaPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.khulnaPage.do_click(config.TestData.LOWEST_AD)
-        self.khulnaPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
+        self.khulnaPage.do_find_lowest_ad()
+        self.khulnaPage.do_click()
+        self.khulnaPage.do_click_number_button()
 
     def test_phone_number(self):
         self.khulnaPage = KhulnaPage(self.driver)
-        self.khulnaPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.khulnaPage.do_click(config.TestData.LOWEST_AD)
-        self.khulnaPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
-        phone_numbers = self.khulnaPage.do_valid_phone_number(config.TestData.VALID_NUMBER)
+        self.khulnaPage.do_find_lowest_ad()
+        self.khulnaPage.do_click()
+        self.khulnaPage.do_click_number_button()
+        phone_numbers = self.khulnaPage.do_valid_phone_number()
         time.sleep(2)
         for phone_number in phone_numbers:
             Pattern = re.compile(r'^(?:\d88|88)?(01[3-9]\d{8})$')

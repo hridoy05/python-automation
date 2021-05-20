@@ -4,7 +4,6 @@ import pytest
 
 from bikroy_com_test_two_three_pom.Pages.ChattogramPage import ChattogramPage
 from bikroy_com_test_two_three_pom.Tests.test_base import BaseTest
-from bikroy_com_test_two_three_pom.Config import config
 
 
 class Test_Chattogram(BaseTest):
@@ -17,44 +16,44 @@ class Test_Chattogram(BaseTest):
 
     def test_lowest_add(self):
         self.chattogramPage = ChattogramPage(self.driver)
-        element = self.chattogramPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
+        element = self.chattogramPage.do_find_lowest_ad()
         if element:
             assert True
 
     def test_click(self):
         self.chattogramPage = ChattogramPage(self.driver)
-        self.chattogramPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.chattogramPage.do_click(config.TestData.LOWEST_AD)
+        self.chattogramPage.do_find_lowest_ad()
+        self.chattogramPage.do_click()
         time.sleep(2)
 
     def test_date_text(self):
         self.chattogramPage = ChattogramPage(self.driver)
-        self.chattogramPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.chattogramPage.do_click(config.TestData.LOWEST_AD)
+        self.chattogramPage.do_find_lowest_ad()
+        self.chattogramPage.do_click()
         text = self.chattogramPage.get_date_text()
         if text:
             assert True
 
     def test_element_text(self):
         self.chattogramPage = ChattogramPage(self.driver)
-        self.chattogramPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.chattogramPage.do_click(config.TestData.LOWEST_AD)
-        text = self.chattogramPage.get_element_text(config.TestData.ELEMENT_TEXT)
+        self.chattogramPage.do_find_lowest_ad()
+        self.chattogramPage.do_click()
+        text = self.chattogramPage.get_element_text()
         if text:
             assert True
 
     def test_number_click(self):
         self.chattogramPage = ChattogramPage(self.driver)
-        self.chattogramPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.chattogramPage.do_click(config.TestData.LOWEST_AD)
-        self.chattogramPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
+        self.chattogramPage.do_find_lowest_ad()
+        self.chattogramPage.do_click()
+        self.chattogramPage.do_click_number_button()
 
     def test_phone_number(self):
         self.chattogramPage = ChattogramPage(self.driver)
-        self.chattogramPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.chattogramPage.do_click(config.TestData.LOWEST_AD)
-        self.chattogramPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
-        phone_numbers = self.chattogramPage.do_valid_phone_number(config.TestData.VALID_NUMBER)
+        self.chattogramPage.do_find_lowest_ad()
+        self.chattogramPage.do_click()
+        self.chattogramPage.do_click_number_button()
+        phone_numbers = self.chattogramPage.do_valid_phone_number()
         time.sleep(3)
         for phone_number in phone_numbers:
             Pattern = re.compile(r'^(?:\d88|88)?(01[3-9]\d{8})$')

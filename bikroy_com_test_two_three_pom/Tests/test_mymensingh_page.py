@@ -27,8 +27,8 @@ class Test_Mymensingh(BaseTest):
 
     def test_date_text(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.mymensinghPage.do_click(config.TestData.LOWEST_AD)
+        self.mymensinghPage.do_find_lowest_ad()
+        self.mymensinghPage.do_click()
         text = self.mymensinghPage.get_date_text()
 
         if text:
@@ -36,24 +36,24 @@ class Test_Mymensingh(BaseTest):
 
     def test_element_text(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.mymensinghPage.do_click(config.TestData.LOWEST_AD)
-        text = self.mymensinghPage.get_element_text(config.TestData.ELEMENT_TEXT)
+        self.mymensinghPage.do_find_lowest_ad()
+        self.mymensinghPage.do_click()
+        text = self.mymensinghPage.get_element_text()
         if text:
             assert True
 
     def test_number_click(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.mymensinghPage.do_click(config.TestData.LOWEST_AD)
-        self.mymensinghPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
+        self.mymensinghPage.do_find_lowest_ad()
+        self.mymensinghPage.do_click()
+        self.mymensinghPage.do_click_number_button()
 
     def test_phone_number(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.mymensinghPage.do_click(config.TestData.LOWEST_AD)
-        self.mymensinghPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
-        phone_numbers = self.mymensinghPage.do_valid_phone_number(config.TestData.VALID_NUMBER)
+        self.mymensinghPage.do_find_lowest_ad()
+        self.mymensinghPage.do_click()
+        self.mymensinghPage.do_click_number_button()
+        phone_numbers = self.mymensinghPage.do_valid_phone_number()
         time.sleep(2)
         for phone_number in phone_numbers:
             Pattern = re.compile(r'^(?:\d88|88)?(01[3-9]\d{8})$')

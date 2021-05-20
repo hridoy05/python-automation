@@ -16,44 +16,44 @@ class Test_Rangpur(BaseTest):
 
     def test_lowest_add(self):
         self.rangpurPage = RangpurPage(self.driver)
-        element = self.rangpurPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
+        element = self.rangpurPage.do_find_lowest_ad()
         if element:
             assert True
 
     def test_click(self):
         self.rangpurPage = RangpurPage(self.driver)
-        self.rangpurPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rangpurPage.do_click(config.TestData.LOWEST_AD)
+        self.rangpurPage.do_find_lowest_ad()
+        self.rangpurPage.do_click()
         time.sleep(2)
 
     def test_date_text(self):
         self.rangpurPage = RangpurPage(self.driver)
-        self.rangpurPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rangpurPage.do_click(config.TestData.LOWEST_AD)
+        self.rangpurPage.do_find_lowest_ad()
+        self.rangpurPage.do_click()
         text = self.rangpurPage.get_date_text()
         if text:
             assert True
 
     def test_element_text(self):
         self.rangpurPage = RangpurPage(self.driver)
-        self.rangpurPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rangpurPage.do_click(config.TestData.LOWEST_AD)
-        text = self.rangpurPage.get_element_text(config.TestData.ELEMENT_TEXT)
+        self.rangpurPage.do_find_lowest_ad()
+        self.rangpurPage.do_click()
+        text = self.rangpurPage.get_element_text()
         if text:
             assert True
 
     def test_number_click(self):
         self.rangpurPage = RangpurPage(self.driver)
-        self.rangpurPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rangpurPage.do_click(config.TestData.LOWEST_AD)
-        self.rangpurPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
+        self.rangpurPage.do_find_lowest_ad()
+        self.rangpurPage.do_click()
+        self.rangpurPage.do_click_number_button()
 
     def test_phone_number(self):
         self.rangpurPage = RangpurPage(self.driver)
-        self.rangpurPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
-        self.rangpurPage.do_click(config.TestData.LOWEST_AD)
-        self.rangpurPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
-        phone_numbers = self.rangpurPage.do_valid_phone_number(config.TestData.VALID_NUMBER)
+        self.rangpurPage.do_find_lowest_ad()
+        self.rangpurPage.do_click()
+        self.rangpurPage.do_click_number_button()
+        phone_numbers = self.rangpurPage.do_valid_phone_number()
         time.sleep(2)
         for phone_number in phone_numbers:
             Pattern = re.compile(r'^(?:\d88|88)?(01[3-9]\d{8})$')
