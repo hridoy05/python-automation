@@ -1,52 +1,60 @@
 import time
 import re
-import pytest
 
+from bikroy_com_test_two_three_pom.Config import config
 from bikroy_com_test_two_three_pom.Pages.MymensinghPage import MymensinghPage
 from bikroy_com_test_two_three_pom.Tests.test_base import BaseTest
 
 
 class Test_Mymensingh(BaseTest):
-
     def test_cities_name(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        elements = self.mymensinghPage.name_all_cities()
+        elements = self.mymensinghPage.get_all_cities()
         for i in range(2, len(elements)):
             print(elements[i])
 
     def test_lowest_add(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        element = self.mymensinghPage.get_lowest_add()
+        element = self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
         if element:
             assert True
 
     def test_click(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        self.mymensinghPage.click()
-        time.sleep(3)
+        self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
+        self.mymensinghPage.do_click(config.TestData.LOWEST_AD)
+        time.sleep(2)
 
     def test_date_text(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        text = self.mymensinghPage.date_text()
+        self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
+        self.mymensinghPage.do_click(config.TestData.LOWEST_AD)
+        text = self.mymensinghPage.get_date_text()
+
         if text:
             assert True
 
     def test_element_text(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        text = self.mymensinghPage.element_text()
+        self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
+        self.mymensinghPage.do_click(config.TestData.LOWEST_AD)
+        text = self.mymensinghPage.get_element_text(config.TestData.ELEMENT_TEXT)
         if text:
             assert True
 
     def test_number_click(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        self.mymensinghPage.click_number_button()
-        time.sleep(3)
+        self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
+        self.mymensinghPage.do_click(config.TestData.LOWEST_AD)
+        self.mymensinghPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
 
     def test_phone_number(self):
         self.mymensinghPage = MymensinghPage(self.driver)
-        phone_numbers = self.mymensinghPage.valid_phone_number()
-        time.sleep(3)
-        numList = []
+        self.mymensinghPage.do_find_lowest_ad(config.TestData.LOWEST_AD)
+        self.mymensinghPage.do_click(config.TestData.LOWEST_AD)
+        self.mymensinghPage.do_click_number_button(config.TestData.NUMBER_BUTTON)
+        phone_numbers = self.mymensinghPage.do_valid_phone_number(config.TestData.VALID_NUMBER)
+        time.sleep(2)
         for phone_number in phone_numbers:
             Pattern = re.compile(r'^(?:\d88|88)?(01[3-9]\d{8})$')
             if Pattern.match(phone_number.text):

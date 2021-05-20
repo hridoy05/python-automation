@@ -21,30 +21,31 @@ class BasePage:
         cities = text.split('\n')
         return cities
 
-    def do_find_lowest_ad(self, by_locator):
-        elements = self.driver.find_elements_by_class_name('normal--2QYVk')
+    def do_find_lowest_ad(self, locator):
+        elements = self.driver.find_elements_by_class_name(locator)
         print(list(elements))
         element = elements[-1]
         return element
 
-    def do_click(self, by_locator):
-        elements = self.driver.find_elements_by_class_name('normal--2QYVk')
+    def do_click(self, locator):
+        elements = self.driver.find_elements_by_class_name(locator)
         print(list(elements))
         element = elements[-1]
-        element.click()
+        return element.click()
 
     def get_date_text(self):
         text = self.driver.execute_script("return document.getElementsByClassName('sub-title--37mkY')[0].innerText;")
         return text
 
-    def get_element_text(self, by_locator):
-        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
+    def get_element_text(self, locator):
+        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
         return element.text
 
-    def do_click_number_button(self, by_locator):
-        WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator)).click()
+    def do_click_number_button(self, locator):
+        return WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(locator)).click()
 
-    def do_valid_phone_number(self):
-        element = phone_numbers = self.driver.find_elements_by_class_name('phone-numbers--2COKR')
+    def do_valid_phone_number(self, locator):
+        element = self.driver.find_elements_by_class_name(locator)
         print("from base page", element)
         return element

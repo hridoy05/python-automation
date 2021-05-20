@@ -1,3 +1,6 @@
+from selenium.webdriver.common.by import By
+
+
 class TestData:
     # CHROME_EXECUTABLE_PATH = "C:/Users/LS\Desktop/driver"
     BASE_URL = "https://bikroy.com/en"
@@ -8,3 +11,9 @@ class TestData:
     BASE_URL_RAJSHAHI = "https://bikroy.com/en/ads/rajshahi"
     BASE_URL_RANGPUR = "https://bikroy.com/en/ads/rangpur"
     BASE_URL_SYLHET = "https://bikroy.com/en/ads/sylhet"
+
+    """BY locators"""
+    LOWEST_AD = 'normal--2QYVk'
+    ELEMENT_TEXT = (By.XPATH, '//div[text()="Description"]')
+    NUMBER_BUTTON = (By.CLASS_NAME, "call-button--3uvWj")
+    VALID_NUMBER = 'phone-numbers--2COKR'
